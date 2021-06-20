@@ -27,7 +27,7 @@ function check_query_params(query_params, possible_query_params) {
 router.get('/', function (req, res, next) {
     check_query_params(req.query, possible_query_params);
     var content_type = 'application/json';
-    var data = ib.download(req.query.file);
+    var data = lib.download(req.query.file);
     res.setHeader('Content-Type', content_type);
     res.send(data);
 });
