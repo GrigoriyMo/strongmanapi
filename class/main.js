@@ -13,6 +13,6 @@ module.exports = class Main {
                 flag = 0;
             }
         } 
-        return flag;
+        return flag || new Error ({ message: "Данные заполнены не полностью" });
     }
 }
