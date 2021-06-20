@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var cms_engine = require('./routes/cms_engine');
+var download_data_route = require('./routes/download');
 
 var app = express();
 
@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/static', express.static(__dirname + '/public'));
 
-app.use('/download', cms_engine);
+app.use('/download', download_data_route);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
