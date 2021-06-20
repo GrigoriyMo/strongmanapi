@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/static', express.static(__dirname + '/public'));
 
-app.use('/cms_engine', cms_engine);
+app.use('/download', cms_engine);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
