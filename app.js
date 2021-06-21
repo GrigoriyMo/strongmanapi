@@ -7,6 +7,7 @@ var logger = require('morgan');
 var download_data_route = require('./routes/download');
 var insert_data_route = require('./routes/insert');
 var delete_data_route = require('./routes/delete');
+var update_data_route = require('./routes/update');
 
 var app = express();
 
@@ -19,11 +20,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use('/static', express.static(__dirname + '/public'));
 
+app.use('/static', express.static(__dirname + '/public'));
 app.use('/download', download_data_route);
-app.use('/insert', insert_data_route);
+app.use('/insert',  insert_data_route);
 app.use('/delete', delete_data_route);
+app.use('/update', update_data_route);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
