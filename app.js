@@ -10,7 +10,8 @@ var delete_data_route = require('./routes/delete');
 var update_data_route = require('./routes/update');
 
 var app = express();
-
+var publicdir = '/static';
+global.publicdir = publicdir;
 app.disable('x-powered-by');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/static', express.static(__dirname + '/public'));
+app.use(publicdir, express.static(__dirname + '/public'));
 app.use('/download', download_data_route);
 app.use('/insert',  insert_data_route);
 app.use('/delete', delete_data_route);
